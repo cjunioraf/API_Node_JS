@@ -4,8 +4,6 @@ const express = require('express')
 //inicializa o express
 const app = express() 
 
-
-
 const mongoose = require('mongoose')
 //LER JSON - usando o express - middlewares 
 app.use( express.urlencoded({
