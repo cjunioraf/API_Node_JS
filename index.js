@@ -1,7 +1,10 @@
+require('dotenv').config()
 //importa a pasta /node_modules/express para o projeto
 const express = require('express')
 //inicializa o express
 const app = express() 
+
+
 
 const mongoose = require('mongoose')
 //LER JSON - usando o express - middlewares 
@@ -15,8 +18,8 @@ app.use(express.json())
 const personroutes = require('./routes/personroutes')
 app.use('/pessoa', personroutes)
 //----------------------
-const db_user = 'cafej'
-const db_Password = encodeURIComponent('q3Sa56aPeMLFfFYI')
+const db_user = process.env.db_user
+const db_Password = encodeURIComponent(process.env.db_Password)
 
 mongoose.connect(`mongodb+srv://${db_user}:${db_Password}@apicluster.odurxhr.mongodb.net/bancodaapi?retryWrites=true&w=majority`)
 
